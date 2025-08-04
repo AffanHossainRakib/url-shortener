@@ -35,37 +35,41 @@
 ### 🎯 Core Features
 
 - 🔗 **URL Shortening** - Convert long URLs into memorable links
-- 🔐 **Secure Authentication** - Login & registration system
-- 📊 **Analytics Dashboard** - Track clicks and detailed statistics
-- ⚡ **Real-time Updates** - Live data synchronization
+- 🔐 **Secure Authentication** - Login & registration with profile pictures
+- � **Form Validation** - Yup-powered client-side validation
+- 🔄 **Loading States** - Beautiful loading animations with react-spinners
+- 🛡️ **Protected Routes** - Context-based authentication state
 
 </td>
 <td width="50%">
 
 ### 🎨 User Experience
 
-- 🌙 **Dark Mode Support** - Toggle between themes
-- 📱 **Responsive Design** - Works on all devices
-- 🎨 **Modern UI** - Beautiful shadcn/ui components
-- ⚙️ **Custom Links** - Personalized short URLs
+- 🌙 **Dark Mode Support** - Built-in light/dark theme support
+- 📱 **Responsive Design** - Works perfectly on all devices
+- 🎨 **Modern UI** - Beautiful shadcn/ui components with New York style
+- 🎯 **Accessible Components** - WAI-ARIA compliant with Radix UI
+- 📝 **Interactive FAQ** - Collapsible accordion with common questions
 
 </td>
 </tr>
 </table>
 
-## �️ Tech Stack
+## 🛠️ Tech Stack
 
 <div align="center">
 
-| Category          | Technology                                                                                                        | Description                 |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| ⚛️ **Frontend**   | ![React](https://img.shields.io/badge/React-19-61DAFB?style=flat&logo=react&logoColor=white)                      | Modern React with hooks     |
-| ⚡ **Build Tool** | ![Vite](https://img.shields.io/badge/Vite-7-646CFF?style=flat&logo=vite&logoColor=white)                          | Lightning fast development  |
-| 🎨 **Styling**    | ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat&logo=tailwind-css&logoColor=white)     | Utility-first CSS framework |
-| 🗄️ **Backend**    | ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)                | Database, Auth & Real-time  |
-| 🧭 **Routing**    | ![React Router](https://img.shields.io/badge/React_Router-v7-CA4245?style=flat&logo=react-router&logoColor=white) | Client-side routing         |
-| 🎯 **Icons**      | ![Lucide](https://img.shields.io/badge/Lucide-React-F56565?style=flat&logo=lucide&logoColor=white)                | Beautiful icon library      |
-| 🧩 **Components** | ![shadcn/ui](https://img.shields.io/badge/shadcn/ui-000000?style=flat&logo=shadcnui&logoColor=white)              | Accessible UI components    |
+| Category          | Technology                                                                                                           | Description                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------- |
+| ⚛️ **Frontend**   | ![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=flat&logo=react&logoColor=white)                     | Modern React with hooks      |
+| ⚡ **Build Tool** | ![Vite](https://img.shields.io/badge/Vite-7.0.4-646CFF?style=flat&logo=vite&logoColor=white)                         | Lightning fast development   |
+| 🎨 **Styling**    | ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-4.1.11-38B2AC?style=flat&logo=tailwind-css&logoColor=white)    | Utility-first CSS framework  |
+| 🗄️ **Backend**    | ![Supabase](https://img.shields.io/badge/Supabase-2.53.0-3ECF8E?style=flat&logo=supabase&logoColor=white)            | Database, Auth & Storage     |
+| 🧭 **Routing**    | ![React Router](https://img.shields.io/badge/React_Router-7.7.1-CA4245?style=flat&logo=react-router&logoColor=white) | Client-side routing          |
+| 🎯 **Icons**      | ![Lucide](https://img.shields.io/badge/Lucide-0.536.0-F56565?style=flat&logo=lucide&logoColor=white)                 | Beautiful icon library       |
+| 🧩 **Components** | ![shadcn/ui](https://img.shields.io/badge/shadcn/ui-000000?style=flat&logo=shadcnui&logoColor=white)                 | Accessible UI components     |
+| ✅ **Validation** | ![Yup](https://img.shields.io/badge/Yup-1.7.0-FF6B6B?style=flat&logo=javascript&logoColor=white)                     | Schema validation library    |
+| 🔄 **Loading**    | ![React Spinners](https://img.shields.io/badge/React_Spinners-0.17.0-4A90E2?style=flat&logo=react&logoColor=white)   | Beautiful loading animations |
 
 </div>
 
@@ -89,12 +93,14 @@ npm install
 
 ### 3️⃣ Environment Setup
 
-Create a `.env.local` file in the root directory:
+Create a `.env.local` file in the root directory (see `.env.example` for reference):
 
 ```env
 VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
+
+> **Note**: The app uses `.env.local` for environment variables. Make sure your Supabase project is properly configured with authentication and storage buckets.
 
 ### 4️⃣ Start Development Server
 
@@ -113,18 +119,37 @@ Navigate to `http://localhost:5173` 🎉
 ```
 📁 src/
 ├── 🧩 components/          # Reusable UI components
+│   ├── 🔐 login.jsx        # Login form component
+│   ├── 📝 signup.jsx       # Registration form component
+│   ├── 🧭 header.jsx       # Navigation header
+│   ├── ❌ error.jsx        # Error message component
+│   ├── 🚫 404.jsx          # Not found component
 │   └── 🎨 ui/             # shadcn/ui components
+│       ├── � button.jsx
+│       ├── �📄 card.jsx
+│       ├── 📥 input.jsx
+│       ├── 📑 tabs.jsx
+│       ├── 📂 accordion.jsx
+│       ├── 👤 avatar.jsx
+│       └── 📋 dropdown-menu.jsx
 ├── 📄 pages/              # Route components
 │   ├── 🔐 auth.jsx        # Authentication page
-│   ├── 📊 dashboard.jsx   # User dashboard
+│   ├── 📊 dashboard.jsx   # User dashboard (WIP)
 │   ├── 🏠 landing.jsx     # Home/landing page
-│   ├── 🔗 link.jsx        # Link details page
-│   └── ↗️ redirected-link.jsx # URL redirect handler
+│   ├── 🔗 link.jsx        # Link details page (WIP)
+│   └── ↗️ redirected-link.jsx # URL redirect handler (WIP)
 ├── 🎛️ layouts/            # Layout components
-│   └── 📐 app-layout.jsx  # Main app layout
+│   └── 📐 app-layout.jsx  # Main app layout with header
+├── 🗄️ db/                 # Database & API layer
+│   ├── 🔧 supabase.js     # Supabase client configuration
+│   └── 🔑 apiAuth.js      # Authentication API functions
+├── 🎣 hooks/              # Custom React hooks
+│   └── 🔄 use-fetch.jsx   # Reusable fetch hook with loading states
 ├── 🛠️ lib/                # Utility functions
-│   └── ⚙️ utils.js        # Helper functions
-└── 🖼️ assets/             # Static assets
+│   └── ⚙️ utils.js        # Helper functions (cn utility)
+├── 🌐 context.jsx         # Authentication context provider
+├── 🖼️ assets/             # Static assets
+└── 📱 App.jsx             # Main app with routing setup
 ```
 
 ## 🎯 Available Scripts
@@ -144,7 +169,7 @@ Navigate to `http://localhost:5173` 🎉
 
 <div align="center">
 
-**Powered by modern, accessible components**
+**Powered by modern, accessible components with New York style**
 
 ![shadcn/ui](https://img.shields.io/badge/shadcn/ui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)
 ![Radix UI](https://img.shields.io/badge/Radix_UI-161618?style=for-the-badge&logo=radix-ui&logoColor=white)
@@ -152,12 +177,23 @@ Navigate to `http://localhost:5173` 🎉
 
 </div>
 
-| Component Library               | Purpose                         | Features               |
-| ------------------------------- | ------------------------------- | ---------------------- |
-| 🧩 **Radix UI**                 | Unstyled, accessible components | WAI-ARIA compliant     |
-| 🎨 **Tailwind CSS**             | Utility-first CSS framework     | Responsive design      |
-| 🔧 **Class Variance Authority** | Component variants              | Type-safe styling      |
-| 🎯 **Lucide React**             | Beautiful icons                 | Consistent iconography |
+| Component Library               | Purpose                         | Features                   |
+| ------------------------------- | ------------------------------- | -------------------------- |
+| 🧩 **Radix UI**                 | Unstyled, accessible components | WAI-ARIA compliant         |
+| 🎨 **Tailwind CSS v4**          | Utility-first CSS framework     | Native CSS support         |
+| 🔧 **Class Variance Authority** | Component variants              | Type-safe styling patterns |
+| 🎯 **Lucide React**             | Beautiful icons                 | Consistent iconography     |
+| 🎭 **tw-animate-css**           | Animation utilities             | CSS animation helpers      |
+
+### 📦 Available Components
+
+- 🔘 **Button** - Multiple variants (default, destructive, outline, secondary, ghost, link)
+- 📄 **Card** - Header, content, footer with actions
+- 📥 **Input** - Styled form inputs with validation states
+- 📑 **Tabs** - Accessible tab navigation
+- 📂 **Accordion** - Collapsible content sections
+- 👤 **Avatar** - Profile pictures with fallbacks
+- 📋 **Dropdown Menu** - Context menus and dropdowns
 
 ## 🗃️ Database Setup
 
@@ -168,15 +204,30 @@ Navigate to `http://localhost:5173` 🎉
 
 Visit [supabase.com](https://supabase.com) and create a new project
 
-### 2️⃣ Database Tables
+### 2️⃣ Enable Authentication
 
-Set up the following tables:
+- Go to Authentication settings
+- Enable email/password authentication
+- Configure your site URL for redirects
 
-| Table       | Description                      | Key Fields                            |
-| ----------- | -------------------------------- | ------------------------------------- |
-| 👤 `users`  | User profiles and authentication | id, email, created_at                 |
-| 🔗 `urls`   | Shortened URL data               | id, original_url, short_code, user_id |
-| 📊 `clicks` | Analytics and click tracking     | id, url_id, ip_address, timestamp     |
+### 3️⃣ Storage Setup
+
+Create a storage bucket for profile pictures:
+
+- Go to Storage
+- Create a new bucket named `profile-pic`
+- Set it to public for profile image access
+
+### 4️⃣ Database Tables
+
+The app currently handles user authentication through Supabase Auth. Additional tables for URL shortening will include:
+
+| Table          | Description                    | Status     |
+| -------------- | ------------------------------ | ---------- |
+| 👤 **Auth**    | User authentication (built-in) | ✅ Active  |
+| 🗂️ **Storage** | Profile pictures storage       | ✅ Active  |
+| 🔗 **URLs**    | Shortened URL data             | 🚧 Planned |
+| 📊 **Clicks**  | Analytics and click tracking   | 🚧 Planned |
 
 </details>
 
