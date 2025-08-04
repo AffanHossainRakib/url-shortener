@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import { Children } from "react";
 import AppLayout from "./layouts/app-layout";
+import UrlProvider from "./context";
 
 import Auth from "./pages/auth";
 import Dashboard from "./pages/dashboard";
@@ -38,7 +39,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <UrlProvider>
+      <RouterProvider router={router} />;
+    </UrlProvider>
+  );
 }
 
 export default App;
